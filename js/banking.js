@@ -30,14 +30,15 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
     const withdrawNewAmount = parseFloat(withdrawAmout);
 
     const totalWithdraw = withdrawNewInput + withdrawNewAmount;
-    if (totalWithdraw > 0 && totalWithdraw == 1150){
+    if (totalWithdraw > 0 && totalWithdraw <= 1150){
         document.getElementById('withdraw-amount').innerText = totalWithdraw;
+    }
+    withdrawInputValue.value = '';
 
-        const totalBalance = document.getElementById('total-balance').innerText;
+    const totalBalance = document.getElementById('total-balance').innerText;
     const totalNewBalance = parseFloat(totalBalance);
 
     document.getElementById('total-balance').innerText = totalNewBalance - withdrawNewInput;
-    }
-    withdrawInputValue.value = '';
+    
 
 })
