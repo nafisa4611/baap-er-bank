@@ -7,17 +7,17 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
     const depositNewAmount = parseFloat(depositAmout);
 
     const totalDeposit = depositNewInput + depositNewAmount;
-    if (totalDeposit > 0){
+    if (depositNewInput > 0){
         document.getElementById('deposit-amount').innerText = totalDeposit;
+        const totalBalance = document.getElementById('total-balance').innerText;
+        const totalNewBalance = parseFloat(totalBalance);
+    
+        document.getElementById('total-balance').innerText = totalNewBalance + depositNewInput;
     }
     
 
     depositInputValue.value = '';
 
-    const totalBalance = document.getElementById('total-balance').innerText;
-    const totalNewBalance = parseFloat(totalBalance);
-
-    document.getElementById('total-balance').innerText = totalNewBalance + depositNewInput;
 })
 
 
@@ -30,15 +30,17 @@ document.getElementById('withdraw-btn').addEventListener('click', function(){
     const withdrawNewAmount = parseFloat(withdrawAmout);
 
     const totalWithdraw = withdrawNewInput + withdrawNewAmount;
-    if (totalWithdraw > 0 && totalWithdraw <= 1150){
+    if (totalWithdraw > 0 && totalWithdraw <= 1200){
         document.getElementById('withdraw-amount').innerText = totalWithdraw;
+        const totalBalance = document.getElementById('total-balance').innerText;
+        const totalNewBalance = parseFloat(totalBalance);
+        const totalUpdateBalance = totalNewBalance - withdrawNewInput;
+        if (totalUpdateBalance > 0){
+            document.getElementById('total-balance').innerText = totalUpdateBalance;
+        }
+        
     }
     withdrawInputValue.value = '';
 
-    const totalBalance = document.getElementById('total-balance').innerText;
-    const totalNewBalance = parseFloat(totalBalance);
-
-    document.getElementById('total-balance').innerText = totalNewBalance - withdrawNewInput;
-    
-
+   
 })
